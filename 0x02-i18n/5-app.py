@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 import pytz
+from typing import Union, Dict
 
 
 app = Flask(__name__)
@@ -27,7 +28,7 @@ users = {
 }
 
 
-def get_user(user_id):
+def get_user(user_id) -> Union[Dict, None]:
     """Retrieve a user"""
     return users.get(user_id)
 
