@@ -28,7 +28,7 @@ users = {
 }
 
 
-def get_user(user_id) -> Union[Dict, None]:
+def get_user(user_id: Union[int, str]) -> Union[Dict, None]:
     """Retrieve a user"""
     return users.get(user_id)
 
