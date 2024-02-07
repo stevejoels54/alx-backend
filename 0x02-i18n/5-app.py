@@ -33,7 +33,7 @@ def get_user(user_id: Union[int, str]) -> Union[Dict, None]:
 
 
 @app.before_request
-def before_request() -> None:
+def before_request():
     """Set the logged-in user"""
     user_id = request.args.get('login_as')
     g.user = get_user(int(user_id)) if user_id else None
