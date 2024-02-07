@@ -28,7 +28,7 @@ users = {
 }
 
 
-def get_user(user_id) -> Union[Dict, None]:
+def get_user(user_id: Union[int, str]) -> Union[Dict, None]:
     """Retrieve a user"""
     return users.get(user_id)
 
@@ -52,7 +52,8 @@ def get_locale():
         if user_locale and user_locale in app.config['LANGUAGES']:
             return user_locale
 
-    request_locale = request.accept_languages.best_match(app.config['LANGUAGES'])
+    request_locale = request.accept_languages.best_match(
+                     app.config['LANGUAGES'])
     if request_locale:
         return request_locale
 
